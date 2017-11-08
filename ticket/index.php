@@ -1,6 +1,6 @@
 <?php
 
-include "classAction.php";
+include "action.php";
 
 
 ?>
@@ -59,7 +59,7 @@ include "classAction.php";
 	?>
 	
 	
-	<form method="post" action="classAction.php">
+	<form method="post" action="action.php">
 	<table class="table table-hover">
 	<tr>
 
@@ -127,7 +127,7 @@ include "classAction.php";
 	?>
 
 	
-	<form method="post" action="classAction.php">
+	<form method="post" action="action.php">
 
 	
 	<table class="table table-hover">
@@ -242,7 +242,7 @@ include "classAction.php";
 		<td><b><?php echo $row["priority"]; ?></b></td>
 		<td><b><?php echo $row["description"]; ?></b></td>
 		<td><a href="index.php?update=1&id=<?php echo $row["id"]; ?>" class="btn btn-info">Edit</a></td>
-		<td><a href="classAction.php?delete=1&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
+		<td><a href="action.php?delete=1&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
 		</tr>
 
 

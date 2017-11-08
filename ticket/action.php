@@ -3,17 +3,19 @@
 include "db.php";
 
 class DataOperation extends Database
-{
-public function insert_record($table,$fileds){
-//"INSERT INTO table_name (, , ) VALUES ('t_name', 'category', 'departement', 'priority', ''description)";
-$sql = "";
-$sql .= "INSERT INTO ".$table;
-$sql .= " (".implode(",", array_keys($fileds)).") VALUES ";
-$sql .= "('".implode("','", array_values($fileds))."')";
-$query = mysqli_query($this->con,$sql);
-if($query){
-return true;
-}
+	{
+		public function insert_record($table,$fileds){
+		//"INSERT INTO table_name (, , ) VALUES ('t_name', 'category', 'departement', 'priority', ''description)";
+		$sql = "";
+		$sql .= "INSERT INTO ".$table;
+		$sql .= " (".implode(",", array_keys($fileds)).") VALUES ";
+		$sql .= "('".implode("','", array_values($fileds))."')";
+		$query = mysqli_query($this->con,$sql);
+
+		if($query){
+			return true;
+		
+	}
 
 }
 public function fetch_record($table){
@@ -29,7 +31,7 @@ public function select_record($table,$where){
 $sql = "";
 $condition = "";
 foreach ($where as $key => $value) {
-// id = '5' AND t_name = 'something'
+
 $condition .= $key . "='" . $value . "' AND ";
 }
 $condition = substr($condition, 0, -5);
