@@ -1,6 +1,6 @@
 <?php 
 
-include_once 'include/ClassUser.php';
+include_once 'include/classUser.php';
 
 $user = new User();
 
@@ -12,7 +12,7 @@ if (isset($_POST['submit'])){
 
         extract($_POST);
 
-        $register = $user->reg_user($fullname, $uname, $upass, $uemail);
+        $register = $user->reg_user($fullname, $username, $password, $email);
 
         if ($register) {
 
@@ -62,7 +62,7 @@ if (isset($_POST['submit'])){
 
           <tr>
 
-            <th>Full Name:</th>
+            <th>Name:</th>
 
             <td>
 
@@ -78,7 +78,7 @@ if (isset($_POST['submit'])){
 
             <td>
 
-              <input type="text" name="uname" required>
+              <input type="text" name="username" required>
 
             </td>
 
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])){
 
             <td>
 
-              <input type="email" name="uemail" required>
+              <input type="email" name="email" required>
 
             </td>
 
@@ -102,7 +102,7 @@ if (isset($_POST['submit'])){
 
             <td>
 
-              <input type="password" name="upass" required>
+              <input type="password" name="password" required>
 
             </td>
 
@@ -124,7 +124,7 @@ if (isset($_POST['submit'])){
 
             <td>&nbsp;</td>
 
-            <td><a href="login.php">Already registered? Click Here!</a></td>
+            <td><a class="btn btn-primary" href="login.php">Login</a></td>
 
           </tr>
 
@@ -138,7 +138,7 @@ if (isset($_POST['submit'])){
 
 
 
-    <script>
+    <script> //Form validation; make sure information comes through to the user.
 
       function submitreg() {
 
@@ -150,19 +150,19 @@ if (isset($_POST['submit'])){
 
           return false;
 
-        } else if (form.uname.value == "") {
+        } else if (form.username.value == "") {
 
           alert("Enter username.");
 
           return false;
 
-        } else if (form.upass.value == "") {
+        } else if (form.pass.value == "") {
 
           alert("Enter password.");
 
           return false;
 
-        } else if (form.uemail.value == "") {
+        } else if (form.email.value == "") {
 
           alert("Enter email.");
 

@@ -1,6 +1,6 @@
 <?php
 
-include "action.php";
+include "classAction.php";
 
 
 ?>
@@ -9,16 +9,13 @@ include "action.php";
 		<head>
 
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 			<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 			<title>Ticket System</title>
 
 			<link rel="stylesheet" href="" type="text/css" />
-
 			<script type="text/javascript"></script>
 			
 		</head>
@@ -27,22 +24,19 @@ include "action.php";
 
 
 			<div class="container">
-
 			<div class="jumbotron">
 
-			<h1>Ticket System <small>Probe IPA</small></h1>
+			<h1>Ticket System</h1>
 
 
-			<a href="http://localhost/login/login.php" name="logout" class="btn btn-primary">Logout</a>
-
-
+			<a  href="http://localhost/ticket/login/login.php" class="btn pull-right name="logout" class="btn btn-primary">Logout</a>
 			</div>
 
 		</div>
 	<div class="container">
 	<div class="row">
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
+	<div class="col-xs-6 col-md-10"></div>
+	<div class="col-xs-6 col-md-10">
 	<div class="panel panel-primary">
 	<div class="panel-heading"> Ticket Details</div>
 	<div class="panel-body">
@@ -50,16 +44,14 @@ include "action.php";
 	<?php
 		
 		if(isset($_GET["update"])){
-
-		
 	$id = $_GET["id"];
 	$where = array("id"=>$id,);
 	$row = $obj->select_record("tickets",$where);
 
 	?>
+	<!-- Tabelle für Ticket System-->
 	
-	
-	<form method="post" action="action.php">
+	<form method="post" action="classAction.php">
 	<table class="table table-hover">
 	<tr>
 
@@ -125,9 +117,9 @@ include "action.php";
 
 	
 	?>
-
+<!-- Formular für Ticket System-->
 	
-	<form method="post" action="action.php">
+	<form method="post" action="classAction.php">
 
 	
 	<table class="table table-hover">
@@ -175,7 +167,7 @@ include "action.php";
 
 	<tr>
 
-	<td colspan="2" align="c"><input type="submit" class="btn btn-primary" name="submit" value="Store"></td>
+	<td colspan="2" align="c"><input type="submit" class="btn btn-primary" name="submit" value="Save"></td>
 
 	</tr>
 
@@ -201,7 +193,7 @@ include "action.php";
 	</div>
 
 	
-	<div class="col-md-3"></div>
+	<div class="col-xs-6 col-md-10"></div>
 
 	</div>
 
@@ -210,13 +202,14 @@ include "action.php";
 
 		<div class="container">
 		<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
+		<div class="col-xs-6 col-md-10"></div>
+		<div class="col-xs-6 col-md-10">
 
-		<table class="table table-bordered">
+		<table class="table">
+		<thead class="thead-inverse">
 
 		<tr>
-		<th>Number</th>
+		<th>#</th>
 		<th>Ticket Name</th>
 		<th>Category</th>
 		<th>Departement</th>
@@ -231,7 +224,7 @@ include "action.php";
 	<?php
 	$myrow = $obj->fetch_record("tickets");
 	foreach ($myrow as $row) {
-	//breaking point
+	
 	?>
 	
 		<tr>
@@ -241,8 +234,8 @@ include "action.php";
 		<td><b><?php echo $row["departement"]; ?></b></td>
 		<td><b><?php echo $row["priority"]; ?></b></td>
 		<td><b><?php echo $row["description"]; ?></b></td>
-		<td><a href="index.php?update=1&id=<?php echo $row["id"]; ?>" class="btn btn-info">Edit</a></td>
-		<td><a href="action.php?delete=1&id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a></td>
+		<td><a class="glyphicon glyphicon-pencil"href="index.php?update=1&id=<?php echo $row["id"]; ?>" </a></td>
+		<td><a class="glyphicon glyphicon-trash" href="classAction.php?delete=1&id=<?php echo $row["id"]; ?>" </a></td>
 		</tr>
 
 
@@ -253,7 +246,7 @@ include "action.php";
 
 				</table>
 			</div>
-		<div class="col-md-2"></div>
+		<div class="col-xs-6 col-md-10"></div>
 	</div>
 </div>
 

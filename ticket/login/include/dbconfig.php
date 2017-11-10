@@ -19,7 +19,7 @@ class DB_con {
 		$this->connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD,DB_DATABASE);
 
 		
-
+		//if connection is not working it returns database error
 		if ($this->connection->connect_error) die('Database error -> ' . $this->connection->connect_error);
 
 		

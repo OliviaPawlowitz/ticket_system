@@ -11,12 +11,12 @@ $user = new User();
 if (isset($_POST['submit'])) { 
 
 		extract($_POST);   
-
+		//check user in db 
 	    $login = $user->check_login($emailusername, $password);
 
 	    if ($login) {
 
-	       
+	       //forwarding to the ticket system
 	       header("location:http://localhost/ticket/index.php");
 
 	    } else {
@@ -41,18 +41,14 @@ if (isset($_POST['submit'])) {
     <meta charset="utf-8">
 
     <title>Login </title>
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-
-  </head>
-
-
-
-  <body>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	
+	</head>
+	<body>
 
     <div id="container" class="container">
 
-      <h1>Login Here</h1>
+      <h1>Login</h1>
 
       <form action="" method="post" name="login">
 
@@ -67,52 +63,38 @@ if (isset($_POST['submit'])) {
               <input type="text" name="emailusername" required>
 
             </td>
+			</tr>
+
+          <tr>
+			<th>Password:</th>
+			<td>
+			<input type="password" name="password" required>
+			</td>
 
           </tr>
 
           <tr>
-
-            <th>Password:</th>
-
-            <td>
-
-              <input type="password" name="password" required>
-
-            </td>
-
-          </tr>
-
-          <tr>
-
-            <td>&nbsp;</td>
-
-            <td>
+			<td>&nbsp;</td>
+			<td>
 
               <input class="btn" type="submit" name="submit" value="Login" onclick="return(submitlogin());">
 
             </td>
+			</tr>
 
-          </tr>
-
-          <tr>
+			<tr>
 
             <td>&nbsp;</td>
 
-            <td><a href="registration.php">Register new user</a></td>
+            <td><a class="btn btn-primary"href="registration.php">New user</a></td>
 
           </tr>
+	</table>
+</form>
+</div>
+<script>
 
-
-
-        </table>
-
-      </form>
-
-    </div>
-
-    <script>
-
-      function submitlogin() {
+      function submitlogin() { //Form validation; make sure information comes through to the user.
 
         var form = document.login;
 
